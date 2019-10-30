@@ -21,22 +21,26 @@ class gb_gutenwidth {
 	public function gb_gutenwidth_admin_styles() {
 		echo '
 			<style>
-				body.gutenberg-editor-page .editor-post-title__block, body.gutenberg-editor-page .editor-default-block-appender, body.gutenberg-editor-page .editor-block-list__block {
-					max-width: none !important;
+				/* Main column width */
+				.wp-block {
+				    max-width: 720px;
 				}
-				.block-editor__container .wp-block {
-					max-width: none !important;
-				}		
+				 
+				/* Width of "wide" blocks */
+				.wp-block[data-align="wide"] {
+				    max-width: 1080px;
+				}
+				 
+				/* Width of "full-wide" blocks */
+				.wp-block[data-align="full"] {
+				    max-width: none;
+				}	
 			</style>
 		';
 	}
 
 }
 
-// Add a Global variable if you need to use outside of instantiated scope
-Global $gb_gutenwidth;
-
-// Instantiate
-$gb_gutenwidth = new gb_gutenwidth();
+new gb_gutenwidth();
 
 ?>
